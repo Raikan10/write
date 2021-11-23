@@ -1,15 +1,12 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+
     <hand-write></hand-write>
   </div>
 </template>
 
 <script>
 import HandWrite from '../components/HandWrite.vue'
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
