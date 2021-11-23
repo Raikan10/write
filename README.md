@@ -1,4 +1,5 @@
 # write
+A project to enable collabarative hand written editing on notion.
 
 ## Project setup
 ```
