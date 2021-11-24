@@ -1,6 +1,6 @@
 <template>
-<div class="container">
-      <div class="columns is-centered"><canvas ref="write" v-on:pointermove="handleMouseMove" v-on:pointerdown="handlePointerDown"></canvas></div>
+<div>
+      <div><canvas ref="write" v-on:pointermove="handleMouseMove" v-on:pointerdown="handlePointerDown"></canvas></div>
       <side-bar class="side-bar"></side-bar>
 </div>
 </template>
@@ -123,13 +123,16 @@ export default {
   position: fixed;
   z-index: 2;
   margin-top: 20em;
-
 }
 canvas{
     position: fixed;
     border: 10px;
     border-color: #000000;
     border-style: solid;
+    touch-action: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 </style>
