@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div>
+    <hand-write class="container"></hand-write>
 
-    <hand-write></hand-write>
   </div>
 </template>
 
@@ -16,3 +16,12 @@ export default {
   }
 }
 </script>
+<style scoped>
+.container{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+</style>

@@ -1,20 +1,24 @@
 <template>
 <div class="container">
-      <div class="  columns"><b-button @click="isWrite=!isWrite">Eraser</b-button></div>
-      <div class="  columns"><canvas ref="write" width="1000" height="700" v-on:pointermove="handleMouseMove" v-on:pointerdown="handlePointerDown"></canvas></div>
+      <div class="columns is-centered"><canvas ref="write" v-on:pointermove="handleMouseMove" v-on:pointerdown="handlePointerDown"></canvas></div>
+      <side-bar class="side-bar"></side-bar>
 </div>
 </template>
 
 <script>
 import { getStroke } from 'perfect-freehand'
-
+import SideBar from '../components/SideBar.vue'
 export default {
+  components: {
+
+    SideBar
+
+  },
   data: function () {
     return {
       points: [],
       color: '',
       isWrite: true,
-
       writeOptions: {
         size: 6,
         smoothing: 0.99,
@@ -107,15 +111,25 @@ export default {
   },
   mounted () {
     this.canvas = this.$refs.write
+    this.canvas.width = window.innerWidth
+    this.canvas.height = window.innerHeight
     this.ctx = this.canvas.getContext('2d')
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.side-bar {
+  position: fixed;
+  z-index: 2;
+  margin-top: 20em;
+
+}
 canvas{
+    position: fixed;
     border: 10px;
     border-color: #000000;
     border-style: solid;
 }
+
 </style>
