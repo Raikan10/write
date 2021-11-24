@@ -1,7 +1,7 @@
 <template>
 <div>
       <div><canvas ref="write" v-on:pointermove="handleMouseMove" v-on:pointerdown="handlePointerDown"></canvas></div>
-      <side-bar class="side-bar"></side-bar>
+      <side-bar :style="{ marginTop:height+'px'}" class="side-bar"></side-bar>
 </div>
 </template>
 
@@ -49,7 +49,8 @@ export default {
           taper: 0,
           cap: true
         }
-      }
+      },
+      width: 0
 
     }
   },
@@ -61,6 +62,9 @@ export default {
       }
       this.changeColor()
       return this.eraserOptions
+    },
+    height: function () {
+      return window.innerHeight / 2
     }
   },
   watch: {
@@ -111,8 +115,9 @@ export default {
   },
   mounted () {
     this.canvas = this.$refs.write
-    this.canvas.width = window.innerWidth
-    this.canvas.height = window.innerHeight
+    this.width = window.innerWidth
+    this.canvas.width = window.innerWidth * 0.98
+    this.canvas.height = window.innerHeight * 0.98
     this.ctx = this.canvas.getContext('2d')
   }
 }
@@ -122,7 +127,7 @@ export default {
 .side-bar {
   position: fixed;
   z-index: 2;
-  margin-top: 20em;
+  margin-top: var(--height);
 }
 canvas{
     position: fixed;
@@ -133,6 +138,7 @@ canvas{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 </style>
