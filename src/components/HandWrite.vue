@@ -116,8 +116,8 @@ export default {
   mounted () {
     this.canvas = this.$refs.write
     this.width = window.innerWidth
-    this.canvas.width = window.innerWidth * 0.98
-    this.canvas.height = window.innerHeight * 0.98
+    this.canvas.width = window.innerWidth * 0.99
+    this.canvas.height = window.innerHeight * 0.99
     this.ctx = this.canvas.getContext('2d')
   }
 }

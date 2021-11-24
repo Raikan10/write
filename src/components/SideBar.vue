@@ -1,6 +1,18 @@
 <template>
     <div class="sidebar-page">
-
+                <b-modal v-model="isFileUploadActive">
+                    <b-field class="file is-primary" :class="{'has-name': !!file}">
+                        <b-upload v-model="file" class="file-label">
+                            <span class="file-cta">
+                                <b-icon class="file-icon" icon="upload"></b-icon>
+                                <span class="file-label">Upload a PDF</span>
+                            </span>
+                            <span class="file-name has-text-white" v-if="file">
+                                {{ file.name }}
+                            </span>
+                        </b-upload>
+                    </b-field>
+                </b-modal>
              <b-sidebar
                 position="static"
                 :mobile="mobile"
@@ -20,6 +32,7 @@
                         <b-menu-list label="Menu">
                             <b-menu-item icon="eraser" label="Eraser" @click="erase"></b-menu-item>
                             <b-menu-item icon="pen" label="Pen" @click="write"></b-menu-item>
+                            <b-menu-item icon="file-upload" label="Upload a PDF" @click="handleUpload"></b-menu-item>
                             <b-menu-item icon="menu" label="Navigation">
                                 <router-link to="/"><b-menu-item icon="home" label="Home"></b-menu-item></router-link>
                                 <router-link to="/about"><b-menu-item icon="information" label="About"></b-menu-item></router-link>
@@ -43,7 +56,9 @@ export default {
 
   data () {
     return {
-      mobile: 'reduce'
+      mobile: 'reduce',
+      isFileUploadActive: false,
+      file: null
 
     }
   },
@@ -53,12 +68,20 @@ export default {
     },
     write: function () {
       this.$parent.$data.isWrite = true
+    },
+    handleUpload: function () {
+      this.isFileUploadActive = true
     }
   }
 }
 </script>
 
 <style lang="scss">
+.file{
+    justify-content: center !important;
+    align-items: center;
+}
+
 .p-1 {
   padding: 1em;
 }
