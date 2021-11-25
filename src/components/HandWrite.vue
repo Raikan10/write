@@ -1,13 +1,13 @@
 <template>
 <div>
       <div><canvas ref="write" v-on:pointermove="handleMouseMove" v-on:pointerdown="handlePointerDown"></canvas></div>
-      <side-bar :style="{ marginTop:height+'px'}" class="side-bar"></side-bar>
+      <side-bar :style="{ marginTop:height+'px'}" class="side-bar" ctx="ctx"></side-bar>
 </div>
 </template>
 
 <script>
 import { getStroke } from 'perfect-freehand'
-import SideBar from '../components/SideBar.vue'
+import SideBar from './SideBar.vue'
 export default {
   components: {
 
@@ -50,8 +50,8 @@ export default {
           cap: true
         }
       },
-      width: 0
-
+      width: 0,
+      ctx: null
     }
   },
   computed: {

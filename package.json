@@ -11,12 +11,14 @@
     "buefy": "^0.9.13",
     "bulma": "^0.9.3",
     "core-js": "^3.6.5",
+    "pdfjs-dist": "^2.10.377",
     "perfect-freehand": "^1.0.16",
     "sass-loader": "^10.1.1",
     "vue": "^2.6.11",
     "vue-hand-written": "^1.2.0",
     "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "worker-loader": "^3.0.8"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
